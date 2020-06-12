@@ -75,6 +75,13 @@ OMR::Z::CPU::detect(OMRPortLibrary * const omrPortLib)
       omrsysinfo_processor_set_feature(&processorDescription, OMR_FEATURE_S390_VECTOR_PACKED_DECIMAL_ENHANCEMENT_FACILITY, FALSE);
       }
 
+   printf ("in OMR::Z::CPU::detect \n");
+
+   for (int i = 0; i < 5; i++)
+   {
+      printf("feature %d, %x \n", i, processorDescription.features[i]);
+   }
+
    return TR::CPU(processorDescription);
    }
 

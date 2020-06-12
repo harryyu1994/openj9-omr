@@ -67,7 +67,7 @@ OMR::X86::CPU::detect(OMRPortLibrary * const omrPortLib)
    for (size_t i = 0; i < OMRPORT_SYSINFO_FEATURES_SIZE; i++)
       {
       processorDescription.features[i] &= featureMasks.features[i];
-      printf ("%x \n", processorDescription.features[i]);
+      printf ("features %d: %x \n", i, processorDescription.features[i]);
       }
 
    return TR::CPU(processorDescription);

@@ -149,10 +149,17 @@ OMR::CPU::detect(OMRPortLibrary * const omrPortLib)
    {
    if (omrPortLib == NULL)
       return TR::CPU();
+   printf("in OMR::CPU::detect \n");
+
 
    OMRPORT_ACCESS_FROM_OMRPORT(omrPortLib);
    OMRProcessorDesc processorDescription;
    omrsysinfo_get_processor_description(&processorDescription);
+
+   for (int i = 0; i < 5; i++)
+   {
+      printf("feature %d, %x \n", i, processorDescription.features[i]);
+   }
    return TR::CPU(processorDescription);
    }
 

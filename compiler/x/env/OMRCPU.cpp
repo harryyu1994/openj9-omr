@@ -51,7 +51,6 @@ OMR::X86::CPU::detect(OMRPortLibrary * const omrPortLib)
       }
 
    printf ("in OMR::X86::CPU::detect \n");
-
    OMRProcessorDesc processorDescription;
    omrsysinfo_get_processor_description(&processorDescription);
 
@@ -64,7 +63,6 @@ OMR::X86::CPU::detect(OMRPortLibrary * const omrPortLib)
          }
       }
    
-   omrsysinfo_processor_set_feature(&processorDescription, OMR_FEATURE_X86_CMOV, FALSE);
    for (size_t i = 0; i < OMRPORT_SYSINFO_FEATURES_SIZE; i++)
       {
       processorDescription.features[i] &= featureMasks.features[i];

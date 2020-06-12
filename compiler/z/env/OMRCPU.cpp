@@ -76,7 +76,7 @@ OMR::Z::CPU::detect(OMRPortLibrary * const omrPortLib)
       }
 
    printf ("in OMR::Z::CPU::detect \n");
-
+   printf ("process type %d\n", processorDescription.processor)
    for (int i = 0; i < 5; i++)
    {
       printf("feature %d, %x \n", i, processorDescription.features[i]);

@@ -120,6 +120,11 @@ void TR_X86ProcessorInfo::initialize(TR::CodeGenerator *cg)
    _featureFlags2.set(cg->comp()->target().cpu.getX86ProcessorFeatureFlags2());
    _featureFlags8.set(cg->comp()->target().cpu.getX86ProcessorFeatureFlags8());
 
+   printf ("in TR_X86ProcessorInfo::initialize");
+   printf ("feature flag %x \n", cg->comp()->target().cpu.getX86ProcessorFeatureFlags());
+   printf ("feature flag 2 %x \n", cg->comp()->target().cpu.getX86ProcessorFeatureFlags2());
+   printf ("feature flag 8 %x \n", cg->comp()->target().cpu.getX86ProcessorFeatureFlags8());
+
    // Determine the processor vendor.
    //
    const char *vendor = cg->comp()->target().cpu.getX86ProcessorVendorId();

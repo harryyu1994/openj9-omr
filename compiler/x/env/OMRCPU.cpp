@@ -50,12 +50,10 @@ OMR::X86::CPU::detect(OMRPortLibrary * const omrPortLib)
       omrsysinfo_processor_set_feature(&featureMasks, enabledFeatures[i], TRUE);
       }
 
+   printf ("in OMR::X86::CPU::detect \n")
+
    OMRProcessorDesc processorDescription;
    omrsysinfo_get_processor_description(&processorDescription);
-   for (size_t i = 0; i < OMRPORT_SYSINFO_FEATURES_SIZE; i++)
-      {
-      processorDescription.features[i] &= featureMasks.features[i];
-      }
 
    if (TRUE == omrsysinfo_processor_has_feature(&processorDescription, OMR_FEATURE_X86_OSXSAVE))
       {
@@ -64,6 +62,12 @@ OMR::X86::CPU::detect(OMRPortLibrary * const omrPortLib)
          // Unset OSXSAVE if not enabled via CR0
          omrsysinfo_processor_set_feature(&processorDescription, OMR_FEATURE_X86_OSXSAVE, FALSE);
          }
+      }
+   
+   for (size_t i = 0; i < OMRPORT_SYSINFO_FEATURES_SIZE; i++)
+      {
+      processorDescription.features[i] &= featureMasks.features[i];
+      printf ("%x \n", processorDescription.features[i]);
       }
 
    return TR::CPU(processorDescription);
